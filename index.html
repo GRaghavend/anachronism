@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anachronistic website</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- outer wrapper mimics an old table-based centered layout -->
+<div id="page-wrap">
+
+  <!-- ================= BANNER ================= -->
+  <table class="banner-table" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="banner-cell">
+        <div class="banner">
+          <marquee class="banner-marquee" behavior="alternate" scrollamount="4">★ ★ ★</marquee>
+          <h1 class="banner-title">𓍿𓉔𓇌  𓋴𓅱𓈖  𓇋𓋴  𓄿𓈖𓇌𓅱𓄿𓇌  𓎼𓅱𓇋𓈖𓎼  𓏏𓅱  𓃀𓃭𓄿𓋴𓏏</h1>
+          <marquee class="banner-marquee" behavior="alternate" scrollamount="4" direction="right">★ ★ ★</marquee>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- ================= NAV BUTTONS ================= -->
+  <table class="nav-table" cellpadding="0" cellspacing="6" border="0">
+    <tr>
+      <td class="nav-cell">
+        <button class="win-button nav-btn" type="button">About Me</button>
+      </td>
+      <td class="nav-cell">
+        <button class="win-button nav-btn" type="button">Projects</button>
+      </td>
+      <td class="nav-cell">
+        <button class="win-button nav-btn" type="button">My Actual Brain Cells</button>
+      </td>
+    </tr>
+  </table>
+
+  <!-- ================= MAIN CONTENT ROW (notepad + side windows) ================= -->
+  <table class="main-row-table" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+
+      <!-- ---- LEFT: existing intro Notepad window (unchanged) ---- -->
+      <td class="main-row-left">
+        <table class="content-table" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td class="content-cell">
+              <div class="content-panel">
+
+                <div class="panel-titlebar">
+                  <span class="panel-titlebar-text">save.txt - Notepad</span>
+                  <span class="panel-titlebar-btns">
+                    <span class="tb-btn">-</span><span class="tb-btn">□</span><span class="tb-btn-close">✕</span>
+                  </span>
+                </div>
+
+                <div class="panel-body">
+
+                  <table class="layout-table" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="video-cell">
+                        <div class="video-frame">
+                          <video
+                            class="intro-video"
+                            src="assets/intro.mp4"
+                            autoplay
+                            muted
+                            playsinline
+                          >
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                        <div class="video-caption">"I'm vegetarian, not coz I love animals. I hate plants!"</div>
+                      </td>
+                      <td class="text-cell">
+                        <h2 class="notepad-heading">Hey, I am Raghav! </h2>
+                        <p class="intro-text">
+                          fi oyu acn rdea tihs, myaeb oyu oot rae srtnaeg eonuhg to eb ym firned !
+                        </p>
+                        <p class="intro-text">
+                          Having started my professional career recently, I've been thinking of adding my digital footprint in a way it doesn't bother anyone. 
+                          This is probably a way to tell interested people that I am into tech, and my interests currently seep into Artificial Intelligence, Data Science,
+                          Machine Learning, Deep Learning, Reinforcement Learning and engineering with AI. 
+                        </p>
+                        <p class="intro-text">
+                          Sometimes, you meet the friend you need serendipitiously. I maybe that one 👻! Hit me up, to discuss tech, jobs or other interstring stuffs like why 
+                          penguins have knees. Otherwise, hesitate to text.
+                        <p class="placeholder-text"> Cheers! </p>
+                        <p class="placeholder-text"> Raghav </p>
+                      </td>
+                    </tr>
+                  </table>
+
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+
+      <!-- ---- RIGHT: new stacked Win98 windows ---- -->
+      <td class="main-row-right">
+
+        <!-- ===== Window 1: Current Project ===== -->
+        <div class="content-panel side-window">
+          <div class="panel-titlebar">
+            <span class="panel-titlebar-text">current_project.exe</span>
+            <span class="panel-titlebar-btns">
+              <span class="tb-btn">-</span><span class="tb-btn">□</span><span class="tb-btn-close">✕</span>
+            </span>
+          </div>
+          <div class="panel-body side-window-body">
+
+            <table class="side-content-row" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td class="side-icon-cell">
+                  <div class="side-icon">📁</div>
+                </td>
+                <td>
+                  <h3 class="side-window-title">Current Project</h3>
+                  <hr class="side-window-hr">
+                  <p class="side-project-title">Placeholder Project Title</p>
+                  <p class="side-desc-text">Here's the project description. Placeholder text about what this project does and why it exists.</p>
+                </td>
+              </tr>
+            </table>
+
+            <div class="progress-row">
+              <span class="progress-label">Progress:</span>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 82%;"></div>
+              </div>
+              <span class="progress-percent">82%</span>
+            </div>
+
+            <p class="side-meta-text">Last updated: placeholder date</p>
+
+            <hr class="side-dashed-divider">
+
+            <!-- TODO: Connect to Projects endpoint -->
+            <button class="win-button side-btn" id="open-project-btn" type="button">Open Project &rarr;</button>
+          </div>
+        </div>
+
+        <!-- ===== Window 2: Eureka Moments ===== -->
+        <div class="content-panel side-window">
+          <div class="panel-titlebar">
+            <span class="panel-titlebar-text">discoveries.log</span>
+            <span class="panel-titlebar-btns">
+              <span class="tb-btn">-</span><span class="tb-btn">□</span><span class="tb-btn-close">✕</span>
+            </span>
+          </div>
+          <div class="panel-body side-window-body">
+
+            <table class="side-content-row" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td class="side-icon-cell">
+                  <div class="side-icon">💡</div>
+                </td>
+                <td>
+                  <h3 class="side-window-title">Eureka Moments</h3>
+                  <hr class="side-window-hr">
+                  <p class="side-project-title">Placeholder Discovery Title</p>
+                  <p class="side-desc-text">Here's the summary text. Placeholder content about a random interesting tech fact or discovery.</p>
+                </td>
+              </tr>
+            </table>
+
+            <hr class="side-dashed-divider">
+
+            <!-- TODO: Connect to Archives endpoint -->
+            <button class="win-button side-btn" id="archives-btn" type="button">Archives &rarr;</button>
+          </div>
+        </div>
+
+      </td>
+
+    </tr>
+  </table>
+
+  <!-- ================= FOOTER ================= -->
+  <table class="footer-table" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="footer-cell">
+        <hr class="pixel-divider">
+        <p class="footer-text">
+          © 1998 THIS SITE. BEST VIEWED AT 800x600. <br>
+          <span class="blink">Mama-mia!</span> 
+        </p>
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

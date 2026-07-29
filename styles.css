@@ -450,6 +450,44 @@ table {
 }
 
 /* ==========================================================
+   SOCIAL LINKS BOX
+   ========================================================== */
+
+.social-box {
+  max-width: 500px;
+  margin: 0 auto 16px auto;
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  background-color: #c0c0c0;
+  border-radius: 14px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+}
+
+.social-slot {
+  width: 48px;
+  height: 48px;
+  background-color: #d4d4d4;
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* ==========================================================
    FOOTER
    ========================================================== */
 

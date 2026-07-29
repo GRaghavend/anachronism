@@ -45,8 +45,7 @@ function initSideWindowButtons() {
   var archivesBtn = document.getElementById("archives-btn");
   if (archivesBtn) {
     archivesBtn.addEventListener("click", function () {
-      // TODO: Connect to Archives endpoint
-      console.log("[side-window] Archives clicked - navigation not yet implemented");
+      window.location.href = "archives.html";
     });
   }
 }

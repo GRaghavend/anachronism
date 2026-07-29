@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archives</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="archives.css">
+</head>
+<body class="archives-body">
+
+<div id="page-wrap">
+
+  <!-- ================= HEADING (reuses existing banner style) ================= -->
+  <table class="banner-table" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="banner-cell">
+        <div class="archive-header">
+          <h1 class="archive-title">
+            <span>A</span><span>R</span><span>C</span><span>H</span><span>I</span><span>V</span><span>E</span><span>S</span>
+          </h1>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- ================= NOTES BOARD (populated by archives.js) ================= -->
+  <div id="notes-board" class="notes-board">
+    <!-- Sticky notes are generated automatically from content/discoveries.md -->
+    <!-- No note markup should be added here by hand. -->
+  </div>
+
+  <p id="notes-status" class="notes-status"></p>
+
+</div>
+
+<script src="archives.js"></script>
+</body>
+</html>

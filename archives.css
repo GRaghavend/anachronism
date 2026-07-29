@@ -1,0 +1,227 @@
+/* ==========================================================
+   ARCHIVES PAGE STYLESHEET
+   Loaded after styles.css - only overrides/adds what's needed
+   for this page. Shared banner/silver look stays untouched.
+   ========================================================== */
+
+/* ---------- page background photo + readability overlay ---------- */
+
+/* ===========================
+   Archive Header
+=========================== */
+
+.archive-header {
+    position: relative;
+    background: #000;
+    padding: 40px 20px;
+    text-align: center;
+    overflow: hidden;
+    border: 3px solid #777;
+    box-shadow: inset 0 0 25px rgba(255,255,255,0.08);
+}
+
+/* Random pastel stars */
+
+.archive-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(#ffd6ff 4px, transparent 2px),
+        radial-gradient(#d6ffcb 4px, transparent 2px),
+        radial-gradient(#fff6a3 4px, transparent 2px),
+        radial-gradient(#cde7ff 4px, transparent 2px),
+        radial-gradient(white 4px, transparent 1.8px);
+
+    background-size:
+        140px 140px,
+        180px 180px,
+        220px 220px,
+        260px 260px,
+        100px 100px;
+
+    background-position:
+        10px 20px,
+        70px 60px,
+        30px 120px,
+        100px 40px,
+        50px 80px;
+
+    opacity: .9;
+    pointer-events: none;
+}
+
+/* Archive title */
+
+.archive-title {
+    position: relative;
+    z-index: 2;
+    font-family: Impact, sans-serif;
+    font-size: 72px;
+    letter-spacing: 5px;
+    margin: 0;
+    text-shadow:
+        3px 3px 0 #222,
+        0 0 8px rgba(255,255,255,.25);
+}
+
+/* Individual letter colours */
+
+.archive-title span:nth-child(4n+1) {
+    color: #b7ffb7;      /* pastel green */
+}
+
+.archive-title span:nth-child(4n+2) {
+    color: #ffd4ec;      /* pastel pink */
+}
+
+.archive-title span:nth-child(4n+3) {
+    color: #fff4a8;      /* pastel yellow */
+}
+
+.archive-title span:nth-child(4n+4) {
+    color: #cde7ff;      /* pastel blue */
+}
+
+/* Subtitle */
+
+.archive-subtitle {
+    position: relative;
+    z-index: 2;
+    margin-top: 10px;
+    color: #d8d8d8;
+    font-style: italic;
+    font-size: 28px;
+}
+
+body.archives-body {
+  background-image: url('assets/metro.jpeg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+body.archives-body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body.archives-body #page-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================
+   NOTES BOARD (masonry / Pinterest-style layout via flexbox
+   columns built in JS - see archives.js. CSS multi-column
+   layout was tried first but browsers don't reliably honor
+   break-inside: avoid, so tall notes could get sliced across
+   a column break. Real flex columns avoid that entirely,
+   since a note is a full DOM child of its column, never a
+   fragment straddling a break.)
+   ========================================================== */
+
+.notes-board {
+  display: flex;
+  align-items: flex-start;
+  gap: 26px;
+  padding: 10px 4px 40px 4px;
+}
+
+.notes-column {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.notes-status {
+  text-align: center;
+  font-size: 12px;
+  color: #303030;
+  font-style: italic;
+}
+
+/* ---------- individual sticky note ---------- */
+
+.sticky-note {
+  margin: 0;
+  padding: 16px 18px 14px 18px;
+  background-color: #fff29b;
+  background-image: linear-gradient(135deg, #fff6b8 0%, #ffe75c 100%);
+  border-radius: 3px 10px 10px 4px;
+  box-shadow: 3px 5px 9px rgba(0, 0, 0, 0.35);
+  font-family: "Comic Sans MS", "Segoe Print", Verdana, cursive, sans-serif;
+  color: #3a3110;
+  position: relative;
+}
+
+/* small "pin" dot at the top of each note for a handmade touch */
+.sticky-note::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: #c0392b;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.note-title {
+  margin: 4px 0 8px 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: #2a2408;
+}
+
+.note-summary {
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #3a3110;
+}
+
+.note-link-btn {
+  display: inline-block;
+  font-family: Verdana, Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: #3a3110;
+  background-color: #fffde8;
+  border: 1px solid #8a7420;
+  border-radius: 3px;
+  padding: 5px 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.note-link-btn:hover {
+  background-color: #ffffff;
+}
+
+/* ==========================================================
+   RESPONSIVE MASONRY COLUMNS
+   Column *count* is decided in archives.js (it needs to know
+   the number to actually distribute notes into that many
+   .notes-column elements). These breakpoints must stay in
+   sync with the ones read in archives.js.
+   ========================================================== */
+
+@media (max-width: 600px) {
+  .notes-board {
+    flex-direction: column;
+  }
+}

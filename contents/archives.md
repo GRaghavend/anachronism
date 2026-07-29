@@ -29,7 +29,7 @@ The fact that the avatar is SO CUTE. It answers mostly any questions. I asked ab
 While I was desparately looking for inspirations to design this site. I came across "https://www.webdesignmuseum.org/" . On August 6th 1991, WorldWideWeb (W3) this was created as a project.html file LOL. Created by TimBL, a computer scientist it had basic designs. Texts and hyperlinks. That's it. And that would have been tremendous amount of work - creating everything from scratch. Check out web design museum for more amazing retro websites. I honestly think they are amazing place to catch up, if you too are someone caught in a perpetual need to go back in time. 
 
 <!-- Optional Link (Add only if applicable) -->
-[Go check it out here] (https://info.cern.ch/hypertext/WWW/TheProject.html)
+[Go check it out here](https://info.cern.ch/hypertext/WWW/TheProject.html)
 
 
 

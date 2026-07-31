@@ -129,8 +129,11 @@ table {
 }
 
 .nav-cell {
-  width: 33.33%;
-  text-align: center;
+  width: 25%;
+  text-align: center;.nav-btn {
+  font-size: 11px;
+  padding: 10px 4px;
+}
 }
 
 .win-button {
@@ -148,6 +151,7 @@ table {
   width: 100%;
   cursor: pointer;
 }
+
 
 .win-button:hover {
   background-image: linear-gradient(180deg, #f0f0f0 0%, #d0d0d0 40%, #b8b8b8 100%);

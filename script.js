@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initNavButtons();
   initVideoFallback();
   initSideWindowButtons();
+  initHomeNav();
 });
 
 /**
@@ -20,6 +21,11 @@ function initNavButtons() {
   var buttons = document.querySelectorAll(".nav-btn");
 
   buttons.forEach(function (btn) {
+    // The About Me button is wired up separately in about.js with
+    // real SPA content-swapping behavior - skip the placeholder
+    // logger here so it isn't double-handled.
+    if (btn.id === "about-nav-btn" || btn.id === "home-nav-btn") return;;
+
     btn.addEventListener("click", function () {
       console.log("[nav] clicked:", btn.textContent.trim());
       // TODO: hook up real navigation once sub-pages exist.
@@ -49,6 +55,16 @@ function initSideWindowButtons() {
     });
   }
 }
+
+// To navigate to home button function
+function initHomeNav() {
+    var homeBtn = document.getElementById("home-nav-btn");
+    if (homeBtn) {
+      homeBtn.addEventListener("click", function () {
+        window.location.href = "index.html";
+      });
+    }
+  }
 
 /**
  * If the intro video fails to load (e.g. assets/intro.mp4

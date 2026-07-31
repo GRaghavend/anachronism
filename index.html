@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anachronistic website</title>
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="about.css">
 </head>
 <body>
 
@@ -28,16 +29,24 @@
   <table class="nav-table" cellpadding="0" cellspacing="6" border="0">
     <tr>
       <td class="nav-cell">
-        <button class="win-button nav-btn" type="button">About Me</button>
+        <button class="win-button nav-btn" type="button" id="home-nav-btn">Home</button>
+      </td>
+      <td class="nav-cell">
+        <button class="win-button nav-btn" type="button" id="about-nav-btn">About Me</button>
       </td>
       <td class="nav-cell">
         <button class="win-button nav-btn" type="button">Projects</button>
       </td>
       <td class="nav-cell">
-        <button class="win-button nav-btn" type="button">My Actual Brain Cells</button>
+        <button class="win-button nav-btn" type="button">blog</button>
       </td>
     </tr>
   </table>
+
+  <!-- ================= MAIN CONTENT AREA (SPA swap target) ================= -->
+  <!-- about.js replaces the innerHTML of this div when "About Me" is clicked.
+       The markup below is the default "home" content. -->
+  <div id="main-content-area">
 
   <!-- ================= MAIN CONTENT ROW (notepad + side windows) ================= -->
   <table class="main-row-table" cellpadding="0" cellspacing="0" border="0">
@@ -181,6 +190,9 @@
     </tr>
   </table>
 
+  </div>
+  <!-- ================= END MAIN CONTENT AREA ================= -->
+
   <!-- ================= SOCIAL LINKS ================= -->
   <div class="social-box">
     <div class="social-slot">
@@ -210,5 +222,6 @@
 </div>
 
 <script src="script.js"></script>
+<script src="about.js"></script>
 </body>
 </html>

@@ -13,10 +13,10 @@
 // SINGLE PLACE TO CONFIGURE THE "WHAT AM I LISTENING TO" VIDEO
 // --------------------------------------------------------
 // TODO: Paste YouTube URL here (any standard watch/share URL works)
-var YOUTUBE_VIDEO_URL = "";
+var YOUTUBE_VIDEO_URL = "https://youtu.be/sY9o4Ap1WCo?si=ZRyogysg9G22O0G6";
 
 var ABOUT_MD_PATH = "contents/me.md";
-var ABOUT_PHOTO_PATH = "assets/place-holder.jpeg";
+var ABOUT_PHOTO_PATH = "assets/myself.jpeg";
 
 document.addEventListener("DOMContentLoaded", function () {
   initAboutNav();
@@ -61,7 +61,7 @@ function buildAboutSkeleton() {
   return (
     '<div class="about-columns">' +
       // ---- Box 1: Photo ----
-      '<div class="about-photo-box plain-panel">' +
+      '<div class="about-photo-box">' +
         '<img src="' + ABOUT_PHOTO_PATH + '" class="about-photo-img" alt="Photo">' +
       "</div>" +
 
@@ -81,13 +81,12 @@ function buildAboutSkeleton() {
         "</div>" +
         '<div class="panel-body music-window-body">' +
           '<div class="music-header-row">' +
-            '<div class="music-icon-holder" id="music-icon-holder">\u266a</div>' +
-            '<span class="music-header-label">WHAT AM I LISTENING TO</span>' +
+            '<div class="music-icon-holder" id="music-icon-holder"><img src="assets/music.jpeg" class="music-icon-img" alt="Music icon"></div>' +
+            '<span class="music-header-label">WHAT AM I LISTENING TO ?</span>' +
           "</div>" +
           '<div id="music-content-slot">' +
             '<p class="about-md-status">Loading...</p>' +
           "</div>" +
-          '<div class="music-button-spacer"></div>' +
         "</div>" +
       "</div>" +
     "</div>"
@@ -200,11 +199,16 @@ function loadMusicBox() {
   var thumbnailUrl = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
 
   slot.innerHTML =
-    '<div class="music-thumb-wrap">' +
-      '<img class="music-thumb-img" src="' + thumbnailUrl + '" alt="Video thumbnail">' +
-      '<div class="youtube-badge"><span class="play-triangle"></span>YouTube</div>' +
-    "</div>" +
-    '<p id="music-video-title" class="music-video-title is-placeholder">Loading title...</p>';
+  '<div class="music-video-frame">' +
+    '<iframe class="music-iframe" ' +
+      'src="https://www.youtube.com/embed/' + videoId + '" ' +
+      'title="YouTube video player" ' +
+      'frameborder="0" ' +
+      'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
+      'allowfullscreen>' +
+    "</iframe>" +
+  "</div>" +
+  '<p id="music-video-title" class="music-video-title is-placeholder">Loading title...</p>';
 
   // Try to fetch the real title via YouTube's public oEmbed
   // endpoint. If that fails (offline, blocked, etc.), leave a

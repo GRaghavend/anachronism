@@ -25,7 +25,4 @@ That being said, I am once again not loyal to AI. It's pretty much a quid pro qu
 ## KEY TAKEWAY FROM PROJECTS
 I have worked on some interesting problem statements. Most of them revolve around data cleaning, visualization, model training, deployment, testing, and measuring model performance to identify opportunities for improvement. 
 
-Notwithstanding the foregoing, a project performs well only when it has a great team behind it. One of the key takeaways from all my projects has been the importance of building a great team: inquisitive, collaborative, and responsible individuals. 
-
-Cheers,
-Raghav
+Notwithstanding the foregoing, a project performs well only when it has a great team behind it. One of the key takeaways from all my projects has been the importance of building a great team: inquisitive, collaborative, and responsible individuals.

@@ -50,8 +50,8 @@
 }
 
 .project-card-icon-holder {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   flex-shrink: 0;
   background-color: #d4d4d4;
   border-top: 1px solid #404040;
@@ -93,6 +93,7 @@
   color: #1a1a1a;
   line-height: 1.4;
   flex: 1 1 auto;
+  text-align: justify;
 }
 
 .project-card-btn {

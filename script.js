@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initVideoFallback();
   initSideWindowButtons();
   initHomeNav();
+  initCurrentProjectWidget();
 });
 
 /**
@@ -41,13 +42,9 @@ function initNavButtons() {
  * in real navigation later without restructuring anything.
  */
 function initSideWindowButtons() {
-  var openProjectBtn = document.getElementById("open-project-btn");
-  if (openProjectBtn) {
-    openProjectBtn.addEventListener("click", function () {
-      // TODO: Connect to Projects endpoint
-      console.log("[side-window] Open Project clicked - navigation not yet implemented");
-    });
-  }
+  // Open Project button: wired up in initCurrentProjectWidget() once the
+  // current project's real GitHub link has been loaded from
+  // contents/projs.md, instead of being bound here as a placeholder.
 
   var archivesBtn = document.getElementById("archives-btn");
   if (archivesBtn) {
@@ -66,6 +63,56 @@ function initHomeNav() {
       });
     }
   }
+
+// Same Markdown file the Projects page reads from - kept as its
+// own constant here since this file loads/populates the homepage
+// widget independently of project.js.
+var CURRENT_PROJECT_MD_PATH = "contents/projs.md";
+
+/**
+ * Populates the homepage "Current Project" window (title,
+ * summary, and the "Open Project" button's link) with whichever
+ * project in contents/projs.md is flagged "-curr". Relies on
+ * parseProjectSections(), defined in project.js, which already
+ * excludes flag lines (-curr, -research, -corporate, etc.) from
+ * the parsed summary text.
+ */
+function initCurrentProjectWidget() {
+  var titleEl = document.getElementById("current-project-title");
+  var descEl = document.getElementById("current-project-desc");
+  var btnEl = document.getElementById("open-project-btn");
+
+  if (!titleEl || !descEl || !btnEl) return;
+  if (typeof parseProjectSections !== "function") return;
+
+  fetch(CURRENT_PROJECT_MD_PATH)
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Could not load " + CURRENT_PROJECT_MD_PATH);
+      }
+      return response.text();
+    })
+    .then(function (mdText) {
+      var projects = parseProjectSections(mdText);
+      var current = projects.filter(function (p) {
+        return p.isCurrent;
+      })[0];
+
+      if (!current) return;
+
+      titleEl.textContent = current.title;
+      descEl.textContent = current.summary;
+
+      if (current.link) {
+        btnEl.addEventListener("click", function () {
+          window.open(current.link, "_blank", "noopener,noreferrer");
+        });
+      }
+    })
+    .catch(function (err) {
+      console.error("[home] Failed to load current project:", err);
+    });
+}
 
 /**
  * If the intro video fails to load (e.g. assets/intro.mp4

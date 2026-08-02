@@ -12,7 +12,9 @@
 // ==========================================================
 
 var PROJECTS_MD_PATH = "contents/projs.md";
-var PROJECT_ICON_PATH = "assets/projs/placeholder.png";
+var PROJECT_ICON_PATH = "assets/projs/macintosh.jpeg";
+var PROJECT_ICON_RESEARCH = "assets/research.jpeg";
+var PROJECT_ICON_CORPORATE = "assets/corporate.jpeg";
 
 document.addEventListener("DOMContentLoaded", function () {
   initProjectsNav();
@@ -116,9 +118,23 @@ function loadProjectsMarkdown() {
 }
 
 /**
+ * Resolves which icon a project card should use based on its
+ * category flag ("-research" / "-corporate"). Falls back to the
+ * generic placeholder icon when no category flag is present.
+ *
+ * @param {string|null} category
+ * @returns {string}
+ */
+function resolveProjectIconPath(category) {
+  if (category === "research") return PROJECT_ICON_RESEARCH;
+  if (category === "corporate") return PROJECT_ICON_CORPORATE;
+  return PROJECT_ICON_PATH;
+}
+
+/**
  * Builds a single project card element.
  *
- * @param {{title: string, summary: string, link: string|null}} project
+ * @param {{title: string, summary: string, link: string|null, flags: string[], isCurrent: boolean, category: string|null}} project
  * @returns {HTMLElement}
  */
 function buildProjectCard(project) {
@@ -131,7 +147,7 @@ function buildProjectCard(project) {
   var iconHolder = document.createElement("div");
   iconHolder.className = "project-card-icon-holder";
   var icon = document.createElement("img");
-  icon.src = PROJECT_ICON_PATH;
+  icon.src = resolveProjectIconPath(project.category);
   icon.className = "project-card-icon";
   icon.alt = project.title + " icon";
   iconHolder.appendChild(icon);
@@ -175,18 +191,30 @@ function buildProjectCard(project) {
  * Parses a Markdown document made up of repeating blocks:
  *
  *   ## Project Title
+ *   -curr
+ *   -research
  *
  *   Project summary text (may wrap multiple lines).
  *
  *   Link:
  *   https://github.com/...
  *
+ * Flag lines (a leading "-" followed by a single word, e.g.
+ * "-curr", "-research", "-corporate") are metadata, not part of
+ * the summary - they're recognized wherever they appear in the
+ * block and are always excluded from the parsed summary text.
  * "Link:" and its URL may also appear on the same line
  * ("Link: https://..."). Does not assume any fixed number of
  * project entries.
  *
+ * Recognized flags:
+ *   -curr        -> isCurrent: true (shown in the homepage
+ *                   "Current Project" window)
+ *   -research    -> category: "research"
+ *   -corporate / -corp -> category: "corporate"
+ *
  * @param {string} mdText
- * @returns {Array<{title: string, summary: string, link: string|null}>}
+ * @returns {Array<{title: string, summary: string, link: string|null, flags: string[], isCurrent: boolean, category: string|null}>}
  */
 function parseProjectSections(mdText) {
   if (!mdText) return [];
@@ -207,12 +235,22 @@ function parseProjectSections(mdText) {
 
     var title = lines[0].replace(/^##\s*/, "").trim();
 
+    var flags = [];
     var summaryLines = [];
     var link = null;
 
     for (var i = 1; i < lines.length; i++) {
       var line = lines[i];
       if (line.length === 0) continue;
+
+      // Flag line, e.g. "-curr" / "-research" / "-corporate".
+      // Recognized (and excluded from the summary) regardless of
+      // where it appears in the block.
+      var flagMatch = line.match(/^-\s*([a-zA-Z0-9_]+)\s*$/);
+      if (flagMatch) {
+        flags.push(flagMatch[1].toLowerCase());
+        continue;
+      }
 
       // "Link:" on its own line, URL follows on a later line.
       if (/^link:?$/i.test(line)) {
@@ -235,10 +273,20 @@ function parseProjectSections(mdText) {
       summaryLines.push(line);
     }
 
+    var category = null;
+    if (flags.indexOf("research") !== -1) {
+      category = "research";
+    } else if (flags.indexOf("corporate") !== -1 || flags.indexOf("corp") !== -1) {
+      category = "corporate";
+    }
+
     return {
       title: title,
       summary: summaryLines.join(" "),
-      link: link
+      link: link,
+      flags: flags,
+      isCurrent: flags.indexOf("curr") !== -1,
+      category: category
     };
   });
 }

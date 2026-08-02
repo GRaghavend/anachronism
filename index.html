@@ -56,17 +56,6 @@
 
       <!-- ---- LEFT: existing intro Notepad window (unchanged) ---- -->
       <td class="main-row-left">
-        <!-- ================= MASCOT (decorative, homepage only) =================
-        Sits outside #main-content-area on purpose - it's page chrome, not
-        swappable SPA content, same as the banner/nav/footer. Lives in the
-        reserved space below the footer so it never overlaps any window,
-        the nav, or the footer text itself. Positioned in normal document
-        flow (not position:fixed) so it scrolls with the page. -->
-        
-        <!-- <div id="home-mascot"> -->
-          <!-- <img src="assets/capy.png" class="mascot-img" alt="Site mascot capybara wearing a backwards cap"> -->
-        <!-- </div> -->
-        
         <table class="content-table" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td class="content-cell">
@@ -144,8 +133,8 @@
                 <td>
                   <h3 class="side-window-title">Current Project</h3>
                   <hr class="side-window-hr">
-                  <p class="side-project-title">Placeholder Project Title</p>
-                  <p class="side-desc-text">Here's the project description. Placeholder text about what this project does and why it exists.</p>
+                  <p class="side-project-title" id="current-project-title">Placeholder Project Title</p>
+                  <p class="side-desc-text" id="current-project-desc">Here's the project description. Placeholder text about what this project does and why it exists.</p>
                 </td>
               </tr>
             </table>
@@ -157,9 +146,6 @@
               </div>
               <span class="progress-percent">82%</span>
             </div>
-
-            <p class="side-meta-text">Last updated: placeholder date</p>
-
             <hr class="side-dashed-divider">
 
             <!-- TODO: Connect to Projects endpoint -->
@@ -234,6 +220,17 @@
     </tr>
   </table>
 
+  <!-- ================= MASCOT (decorative, homepage only) =================
+       Sits outside #main-content-area on purpose - it's page chrome, not
+       swappable SPA content, same as the banner/nav/footer. Lives in the
+       reserved space below the footer so it never overlaps any window,
+       the nav, or the footer text itself. Positioned in normal document
+       flow (not position:fixed) so it scrolls with the page. -->
+  <!-- <div id="home-mascot"> -->
+    <!-- <img src="assets/capy.png" class="mascot-img" alt="Site mascot capybara wearing a backwards cap"> -->
+  <!-- </div> -->
+
+</div>
 
 <script src="script.js"></script>
 <script src="about.js"></script>

@@ -535,10 +535,49 @@ table {
 }
 
 /* ==========================================================
+   MASCOT (decorative, homepage only)
+   Lives outside #main-content-area, right after the footer,
+   so it never covers a window, the nav, or the footer text.
+   It sits in normal document flow - NOT position:fixed - so it
+   scrolls along with the rest of the page instead of floating
+   over content while the visitor scrolls.
+   ========================================================== */
+
+.main-row-left {
+  position: relative;   /* anchors the mascot against this box */
+}
+
+#home-mascot {
+  position: absolute;
+  left: -182px;   /* sits just outside/left of the notepad panel */
+  bottom: 40px;  /* feet dip slightly below the panel's bottom edge, like the reference */
+  z-index: 2;
+  line-height: 0;
+}
+
+.mascot-img {
+  height: 300px;
+  width: auto;
+}
+
+/* ==========================================================
    RESPONSIVE (keep it simple / period-appropriate)
    ========================================================== */
 
+@media (max-width: 900px) {
+  #home-mascot {
+    left: -90px;
+  }
+  .mascot-img {
+    height: 180px;
+  }
+}
+
 @media (max-width: 600px) {
+  #home-mascot {
+    display: none;
+  }
+
   .banner-title {
     font-size: 26px;
     letter-spacing: 2px;

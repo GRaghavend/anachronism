@@ -21,10 +21,11 @@ function initNavButtons() {
   var buttons = document.querySelectorAll(".nav-btn");
 
   buttons.forEach(function (btn) {
-    // The About Me button is wired up separately in about.js with
-    // real SPA content-swapping behavior - skip the placeholder
-    // logger here so it isn't double-handled.
-    if (btn.id === "about-nav-btn" || btn.id === "home-nav-btn") return;;
+    // The About Me, Home and Projects buttons are wired up separately
+    // in about.js / this file / project.js with real SPA
+    // content-swapping behavior - skip the placeholder logger here
+    // so they aren't double-handled.
+    if (btn.id === "about-nav-btn" || btn.id === "home-nav-btn" || btn.id === "projects-nav-btn") return;;
 
     btn.addEventListener("click", function () {
       console.log("[nav] clicked:", btn.textContent.trim());

@@ -6,6 +6,7 @@
 <title>Anachronistic website</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="about.css">
+<link rel="stylesheet" href="project.css">
 </head>
 <body>
 
@@ -35,7 +36,7 @@
         <button class="win-button nav-btn" type="button" id="about-nav-btn">About Me</button>
       </td>
       <td class="nav-cell">
-        <button class="win-button nav-btn" type="button">Projects</button>
+        <button class="win-button nav-btn" type="button" id="projects-nav-btn">Projects</button>
       </td>
       <td class="nav-cell">
         <button class="win-button nav-btn" type="button">blog</button>
@@ -44,8 +45,9 @@
   </table>
 
   <!-- ================= MAIN CONTENT AREA (SPA swap target) ================= -->
-  <!-- about.js replaces the innerHTML of this div when "About Me" is clicked.
-       The markup below is the default "home" content. -->
+  <!-- about.js / project.js replace the innerHTML of this div when their
+       respective nav buttons are clicked. The markup below is the
+       default "home" content. -->
   <div id="main-content-area">
 
   <!-- ================= MAIN CONTENT ROW (notepad + side windows) ================= -->
@@ -54,6 +56,17 @@
 
       <!-- ---- LEFT: existing intro Notepad window (unchanged) ---- -->
       <td class="main-row-left">
+        <!-- ================= MASCOT (decorative, homepage only) =================
+        Sits outside #main-content-area on purpose - it's page chrome, not
+        swappable SPA content, same as the banner/nav/footer. Lives in the
+        reserved space below the footer so it never overlaps any window,
+        the nav, or the footer text itself. Positioned in normal document
+        flow (not position:fixed) so it scrolls with the page. -->
+        
+        <div id="home-mascot">
+          <img src="assets/capy.png" class="mascot-img" alt="Site mascot capybara wearing a backwards cap">
+        </div>
+        
         <table class="content-table" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td class="content-cell">
@@ -221,9 +234,9 @@
     </tr>
   </table>
 
-</div>
 
 <script src="script.js"></script>
 <script src="about.js"></script>
+<script src="project.js"></script>
 </body>
 </html>

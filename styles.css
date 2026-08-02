@@ -549,8 +549,8 @@ table {
 
 #home-mascot {
   position: absolute;
-  left: -182px;   /* sits just outside/left of the notepad panel */
-  bottom: 40px;  /* feet dip slightly below the panel's bottom edge, like the reference */
+  right: 200px;   /* sits just outside/left of the notepad panel */
+  bottom: -80px;  /* feet dip slightly below the panel's bottom edge, like the reference */
   z-index: 2;
   line-height: 0;
 }

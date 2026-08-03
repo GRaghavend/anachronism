@@ -196,16 +196,27 @@
 
   <!-- ================= SOCIAL LINKS ================= -->
   <div class="social-box">
-    <div class="social-slot">
-      <img src="assets/email.jpeg" class="social-icon" alt="Social link 1">
+    <div class="social-slot" data-tooltip="Email">
+      <button type="button" class="social-link-btn" id="email-social-btn" aria-label="Copy email address">
+        <img src="assets/email.jpeg" class="social-icon" alt="Email">
+      </button>
     </div>
-    <div class="social-slot">
-      <img src="assets/linkedin.jpeg" class="social-icon" alt="Social link 2">
+    <div class="social-slot" data-tooltip="LinkedIn">
+      <!-- PLACEHOLDER: paste your LinkedIn profile URL below -->
+      <a href="PASTE_LINKEDIN_URL_HERE" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="LinkedIn">
+        <img src="assets/linkedin.jpeg" class="social-icon" alt="LinkedIn">
+      </a>
     </div>
-    <div class="social-slot">
-      <img src="assets/github.jpeg" class="social-icon" alt="Social link 3">
+    <div class="social-slot" data-tooltip="GitHub">
+      <!-- PLACEHOLDER: paste your GitHub profile URL below -->
+      <a href="PASTE_GITHUB_URL_HERE" target="_blank" rel="noopener noreferrer" class="social-link-btn" aria-label="GitHub">
+        <img src="assets/github.jpeg" class="social-icon" alt="GitHub">
+      </a>
     </div>
   </div>
+
+  <!-- retro toast, shown briefly after the email is copied -->
+  <div id="email-toast" class="retro-toast">Email copied!</div>
 
   <!-- ================= FOOTER ================= -->
   <table class="footer-table" cellpadding="0" cellspacing="0" border="0">

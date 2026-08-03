@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initVideoFallback();
   initSideWindowButtons();
   initHomeNav();
+  initEmailCopy();
   initCurrentProjectWidget();
 });
 
@@ -132,4 +133,33 @@ function initVideoFallback() {
       "[ video not found ]" +
       "</div>";
   });
+}
+
+// PLACEHOLDER: paste your email address below
+var CONTACT_EMAIL = "abc@gmail.com";
+
+/**
+ * Wires the Email footer icon to copy CONTACT_EMAIL to the
+ * clipboard and show a brief retro-style "Email copied!" toast.
+ */
+function initEmailCopy() {
+  var emailBtn = document.getElementById("email-social-btn");
+  var toast = document.getElementById("email-toast");
+  if (!emailBtn) return;
+
+  emailBtn.addEventListener("click", function () {
+    navigator.clipboard.writeText(CONTACT_EMAIL).then(function () {
+      showEmailToast();
+    }).catch(function (err) {
+      console.error("[footer] Failed to copy email:", err);
+    });
+  });
+
+  function showEmailToast() {
+    if (!toast) return;
+    toast.classList.add("is-visible");
+    setTimeout(function () {
+      toast.classList.remove("is-visible");
+    }, 2000);
+  }
 }

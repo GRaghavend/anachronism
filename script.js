@@ -136,7 +136,7 @@ function initVideoFallback() {
 }
 
 // PLACEHOLDER: paste your email address below
-var CONTACT_EMAIL = "abc@gmail.com";
+var CONTACT_EMAIL = "rosypack2026@gmail.com";
 
 /**
  * Wires the Email footer icon to copy CONTACT_EMAIL to the

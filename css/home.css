@@ -60,9 +60,9 @@
 
 .notepad-heading {
   margin: 0 0 8px 0;
-  font-size: 18px;
-  color: #000080;
-  font-family: Arial, Verdana, sans-serif;
+  font-size: 20px;
+  color: #b0179e;
+  font-family: 'Baloo 2', Arial, Verdana, sans-serif;
 }
 
 .intro-text {
@@ -134,10 +134,21 @@
 
 .side-window-title {
   margin: 0 0 4px 0;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
   color: #000080;
-  font-family: Arial, Verdana, sans-serif;
+  font-family: 'Baloo 2', Arial, Verdana, sans-serif;
+}
+
+/* a little color variety between the two stacked windows instead of
+   both sharing the same navy - first is current_project.exe, last
+   is discoveries.log */
+.main-row-right .side-window:first-of-type .side-window-title {
+  color: #2451e0;
+}
+
+.main-row-right .side-window:last-of-type .side-window-title {
+  color: #8a2be2;
 }
 
 .side-window-hr {

@@ -1,6 +1,6 @@
 ## PROFFESIONAL ME
 
-I work as an Associate AI Engineer in Chennai at Elixir Global. I had previously interned as an AI Engineer at SportsMechanics - BCCI, where I had the opportunity to build a automated par score calculator thorugh machine learning and integrate it with the existing website.
+I work as an Associate AI Engineer in Chennai at Elixir Global. I had previously interned as an AI Engineer at SportsMechanics - BCCI, where I had the opportunity to build a automated par score calculator through machine learning and integrate it with the existing website.
 
 ## PERSONAL ME
 I hold a Bachelor's degree in Computer Science and Engineering with a specialization in Artificial Intelligence and Data Science, from SASTRA Deemed University, Thanjavur. During my four years of tenure, I had used only two years fruitfully. In those two years, I developed a deep interest in subjects like Natural Language Processing, Artificial Intelligence, Machine Learning Techniques, Explainable AI techniques, Reinforcement Learning, Optimization Techniques, Deep Learning Techniques and Mathematics. I was also introduced to Full stack web development. While it did not interest me as much as the other subjects, I can still develop applications the hard way. 

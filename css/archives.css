@@ -1,10 +1,20 @@
 /* ==========================================================
    ARCHIVES PAGE STYLESHEET
-   Loaded after styles.css - only overrides/adds what's needed
-   for this page. Shared banner/silver look stays untouched.
+   Used in: archives.html only. Loaded after css/base.css and
+   css/banner.css - only overrides/adds what's needed for this
+   page. Shared banner/silver look stays untouched.
    ========================================================== */
 
 /* ---------- page background photo + readability overlay ---------- */
+
+/* ---------- back-to-home link (archives.html has no nav bar) ---------- */
+
+.archive-home-link {
+  display: inline-block;
+  width: auto;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
 
 /* ===========================
    Archive Header

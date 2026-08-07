@@ -1,0 +1,108 @@
+/* ==========================================================
+   BASE
+   Used in: index.html AND archives.html (loaded first on both).
+   Foundational, page-agnostic styles: the reset, the page
+   wrapper, default table behavior, the classic Win95/98 bevel
+   helpers, and .win-button - the generic button look reused by
+   the nav bar, side-window buttons, project cards, the arcade
+   notice's OK button, and the archives "Home" link.
+   ========================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #000000;
+  /* subtle brushed-silver / checker texture background */
+  background-color: #c0c0c0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.08) 0px,
+      rgba(255,255,255,0.08) 2px,
+      rgba(0,0,0,0.04) 2px,
+      rgba(0,0,0,0.04) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.05) 0px,
+      rgba(255,255,255,0.05) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  background-attachment: fixed;
+}
+
+/* ---------- page wrapper / centering ---------- */
+
+#page-wrap {
+  max-width: 1100px;
+  margin: 14px auto 30px auto;
+  padding: 0 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ==========================================================
+   BEVEL / EMBOSS HELPERS (classic Win95/98 3D borders)
+   ========================================================== */
+
+.bevel-out {
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  box-shadow: inset 1px 1px 0px #dfdfdf, inset -1px -1px 0px #808080;
+}
+
+.bevel-in {
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset 1px 1px 0px #808080;
+}
+
+/* ==========================================================
+   GENERIC BUTTON
+   ========================================================== */
+
+.win-button {
+  font-family: Verdana, Tahoma, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000000;
+  background-color: #c0c0c0;
+  background-image: linear-gradient(180deg, #e8e8e8 0%, #c0c0c0 40%, #a8a8a8 100%);
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  padding: 10px 6px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.win-button:hover {
+  background-image: linear-gradient(180deg, #f0f0f0 0%, #d0d0d0 40%, #b8b8b8 100%);
+}
+
+.win-button:active {
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  padding: 11px 5px 9px 7px;
+}

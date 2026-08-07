@@ -4,9 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anachronistic website</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="about.css">
-<link rel="stylesheet" href="project.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/banner.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/window.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/social.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/about.css">
+<link rel="stylesheet" href="css/projects.css">
 </head>
 <body>
 
@@ -39,7 +45,7 @@
         <button class="win-button nav-btn" type="button" id="projects-nav-btn">Projects</button>
       </td>
       <td class="nav-cell">
-        <button class="win-button nav-btn" type="button">blog</button>
+        <button class="win-button nav-btn" type="button" id="arcade-nav-btn">arcade</button>
       </td>
     </tr>
   </table>
@@ -192,6 +198,13 @@
     </tr>
   </table>
 
+  <!-- ================= ARCADE GAME BOX (empty until Arcade is clicked) =================
+       initArcadeNav() in script.js builds the dino.exe window into this
+       container on click, and clears it again on close - see
+       buildDinoGameWindow(). Kept separate from main-row-table since it
+       only exists some of the time. -->
+  <div id="dino-box-container"></div>
+
   </div>
   <!-- ================= END MAIN CONTENT AREA ================= -->
 
@@ -232,20 +245,32 @@
     </tr>
   </table>
 
-  <!-- ================= MASCOT (decorative, homepage only) =================
-       Sits outside #main-content-area on purpose - it's page chrome, not
-       swappable SPA content, same as the banner/nav/footer. Lives in the
-       reserved space below the footer so it never overlaps any window,
-       the nav, or the footer text itself. Positioned in normal document
-       flow (not position:fixed) so it scrolls with the page. -->
-  <!-- <div id="home-mascot"> -->
-    <!-- <img src="assets/capy.png" class="mascot-img" alt="Site mascot capybara wearing a backwards cap"> -->
-  <!-- </div> -->
-
 </div>
 
-<script src="script.js"></script>
-<script src="about.js"></script>
-<script src="project.js"></script>
+<!-- ================= ARCADE NOTICE (hidden by default) =================
+     Shown by initArcadeNav() in script.js when Arcade is clicked while
+     #dino-box-container isn't in the page - i.e. while on About Me or
+     Projects, since about.js/project.js replace #main-content-area's
+     contents (including that container) when they load. Lives outside
+     #main-content-area for the same reason, so it survives the swap. -->
+<div id="arcade-notice-backdrop" class="notice-backdrop" hidden>
+  <div class="content-panel notice-window" role="alertdialog" aria-modal="true" aria-label="Notice">
+    <div class="panel-titlebar">
+      <span class="panel-titlebar-text">Notice</span>
+      <span class="panel-titlebar-btns">
+        <span class="tb-btn">-</span><span class="tb-btn">□</span>
+        <button type="button" class="tb-btn-close" id="arcade-notice-close" aria-label="Close">✕</button>
+      </span>
+    </div>
+    <div class="panel-body notice-body">
+      <p class="notice-text">Open the Arcade from the Home page.</p>
+      <button class="win-button notice-ok-btn" id="arcade-notice-ok" type="button">OK</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+<script src="js/about.js"></script>
+<script src="js/projects.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 // ==========================================================
 // about.js
+// Used in: index.html only.
 // Wires up the "About Me" nav button to swap the SPA content
 // area (see #main-content-area in index.html) with the About
 // layout, without a page reload.

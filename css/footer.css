@@ -1,0 +1,40 @@
+/* ==========================================================
+   FOOTER
+   Used in: index.html only.
+   ========================================================== */
+
+.footer-cell {
+  text-align: center;
+  padding-top: 6px;
+}
+
+.pixel-divider {
+  border: none;
+  height: 4px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #404040 0px,
+    #404040 4px,
+    #ffffff 4px,
+    #ffffff 8px
+  );
+  margin: 0 0 8px 0;
+}
+
+.footer-text {
+  font-size: 11px;
+  color: #303030;
+  line-height: 1.6;
+}
+
+.blink {
+  animation: blinker 1s step-start infinite;
+  color: #cc0000;
+  font-weight: bold;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

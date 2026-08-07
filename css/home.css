@@ -1,0 +1,330 @@
+/* ==========================================================
+   HOME PAGE CONTENT
+   Used in: index.html only - everything specific to the default
+   Home view (inside #main-content-area): the Notepad box's
+   video/text content, the two-column main row (Notepad + the
+   stacked Current Project/Eureka Moments windows), and the
+   dynamically-inserted Arcade game box + its "open from Home"
+   notice dialog. Generic window chrome (the panel/titlebar/tb-btn
+   look these all sit inside) lives in window.css.
+   ========================================================== */
+
+.content-table {
+  width: 500px;      /* or whatever size you want */
+  margin-bottom: 10px;
+}
+
+/* ---- layout table splitting video / text ---- */
+
+.layout-table td {
+  vertical-align: top;
+}
+
+.video-cell {
+  width: 160px;
+  padding-right: 16px;
+  text-align: center;
+}
+
+.video-frame {
+  width: 140px;
+  height: 140px;
+  background-color: #000000;
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  padding: 4px;
+  margin: 0 auto;
+}
+
+.intro-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background-color: #000000;
+}
+
+.video-caption {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #070606;
+  font-style: italic;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.text-cell {
+  padding-top: 2px;
+}
+
+.notepad-heading {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #000080;
+  font-family: Arial, Verdana, sans-serif;
+}
+
+.intro-text {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+  color: #1a1a1a;
+  text-align: justify ;
+}
+
+/* ==========================================================
+   MAIN ROW LAYOUT (intro notepad + side windows side by side)
+   ========================================================== */
+
+.main-row-table {
+  margin-bottom: 10px;
+}
+
+.main-row-left {
+  vertical-align: top;
+  width: 500px;
+  padding-right: 24px;
+}
+
+.main-row-right {
+  vertical-align: top;
+}
+
+/* the content-table nested inside main-row-left keeps its own
+   width/margin rules untouched - no need to redeclare them here */
+
+.side-window {
+  margin-bottom: 16px;
+}
+
+.side-window:last-child {
+  margin-bottom: 0;
+}
+
+.side-window-body {
+  min-height: 0;
+}
+
+.side-content-row td {
+  vertical-align: top;
+}
+
+.side-icon-cell {
+  width: 56px;
+  text-align: center;
+  padding-right: 10px;
+}
+
+.side-icon {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.folder-icon {
+  width: 48px;
+  height: 52px;
+}
+
+.eureka-icon {
+  width: 48px;
+  height: 52px;
+}
+
+.side-window-title {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000080;
+  font-family: Arial, Verdana, sans-serif;
+}
+
+.side-window-hr {
+  border: none;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+  margin: 6px 0 10px 0;
+}
+
+.side-project-title {
+  margin: 0 0 4px 0;
+  font-weight: bold;
+  font-size: 13px;
+  color: #000000;
+}
+
+.side-desc-text {
+  margin: 0;
+  font-style: italic;
+  font-size: 12px;
+  color: #1a1a1a;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 8px 0;
+}
+
+.progress-label {
+  font-size: 12px;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+.progress-track {
+  flex: 1;
+  height: 14px;
+  background-color: #ffffff;
+  border-top: 1px solid #404040;
+  border-left: 1px solid #404040;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  padding: 1px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #000080;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #1084d0 0px,
+    #1084d0 6px,
+    #000080 6px,
+    #000080 8px
+  );
+}
+
+.progress-percent {
+  font-size: 12px;
+  font-weight: bold;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+.side-meta-text {
+  font-size: 11px;
+  color: #505050;
+  margin: 0;
+}
+
+.side-dashed-divider {
+  border: none;
+  border-top: 1px dashed #808080;
+  margin: 10px 0;
+}
+
+.side-btn {
+  width: 160px;
+  text-align: left;
+  padding: 8px 10px;
+}
+
+/* ==========================================================
+   ARCADE GAME BOX (dino.exe) - built dynamically by
+   initArcadeNav()/buildDinoGameWindow() in js/script.js
+   ========================================================== */
+
+.dino-game-window {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 16px auto;
+}
+
+/* same panel-titlebar look, but green instead of the site's usual
+   blue, so this window reads as visually distinct from the others */
+.dino-panel-titlebar {
+  background-image: linear-gradient(90deg, #005a00 0%, #4caf50 100%);
+}
+
+.dino-game-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  min-height: 0;
+}
+
+.dino-game-iframe {
+  border: none;
+  display: block;
+  width: 750px;
+  max-width: 100%;
+  /* the width/height attributes give the correct 750x500 intrinsic
+     size on desktop; aspect-ratio drives height once max-width:100%
+     shrinks the displayed width on narrow screens, so the game
+     scales down cleanly instead of getting clipped */
+  aspect-ratio: 750 / 500;
+  height: auto;
+}
+
+/* ==========================================================
+   ARCADE NOTICE ("open from Home page")
+   ========================================================== */
+
+.notice-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.notice-backdrop[hidden] {
+  display: none;
+}
+
+.notice-window {
+  width: 100%;
+  max-width: 320px;
+}
+
+.notice-body {
+  min-height: 0;
+  text-align: center;
+}
+
+.notice-text {
+  margin: 0 0 14px 0;
+  font-size: 13px;
+  color: #1a1a1a;
+}
+
+.notice-ok-btn {
+  width: 100px;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 600px) {
+  .layout-table, .layout-table tr, .video-cell, .text-cell {
+    display: block;
+    width: 100%;
+  }
+
+  .video-cell {
+    padding-right: 0;
+    margin-bottom: 12px;
+  }
+
+  .main-row-table, .main-row-table tr, .main-row-left, .main-row-right {
+    display: block;
+    width: 100%;
+  }
+
+  .main-row-left {
+    padding-right: 0;
+    margin-bottom: 16px;
+  }
+
+  .content-table {
+    width: 100%;
+  }
+}

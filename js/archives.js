@@ -1,5 +1,6 @@
 // ==========================================================
 // archives.js
+// Used in: archives.html only.
 // Loads content/discoveries.md, parses it into discovery
 // entries, and renders one sticky note per entry onto the
 // masonry board. Fully data-driven: adding, removing, or

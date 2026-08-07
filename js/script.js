@@ -1,5 +1,6 @@
 // ==========================================================
 // script.js
+// Used in: index.html only.
 // Vanilla JS for the retro homepage.
 // Kept minimal for now - structured so it's easy to expand
 // with more interactivity later (guestbook, hit counter, etc).
@@ -12,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
   initHomeNav();
   initEmailCopy();
   initCurrentProjectWidget();
+  initArcadeNav();
+  initArcadeNotice();
 });
 
 /**
@@ -23,17 +26,137 @@ function initNavButtons() {
   var buttons = document.querySelectorAll(".nav-btn");
 
   buttons.forEach(function (btn) {
-    // The About Me, Home and Projects buttons are wired up separately
-    // in about.js / this file / project.js with real SPA
-    // content-swapping behavior - skip the placeholder logger here
-    // so they aren't double-handled.
-    if (btn.id === "about-nav-btn" || btn.id === "home-nav-btn" || btn.id === "projects-nav-btn") return;;
+    // The About Me, Home, Projects and Arcade buttons are wired up
+    // separately (in about.js / this file / project.js) with real
+    // behavior - skip the placeholder logger here so they aren't
+    // double-handled.
+    if (
+      btn.id === "about-nav-btn" ||
+      btn.id === "home-nav-btn" ||
+      btn.id === "projects-nav-btn" ||
+      btn.id === "arcade-nav-btn"
+    ) return;
 
     btn.addEventListener("click", function () {
       console.log("[nav] clicked:", btn.textContent.trim());
       // TODO: hook up real navigation once sub-pages exist.
     });
   });
+}
+
+/**
+ * Wires the Arcade nav button to build a fourth Win98 window
+ * (dino.exe) into #dino-box-container, below the existing three
+ * boxes (save.txt, current_project.exe, discoveries.log), and
+ * embed the DINO game (dino-game/index.html) in it via
+ * iframe. The game's own script.js listens for the Space key on
+ * its own window, so it jumps as soon as the iframe has focus.
+ * Clicking the generated window's close button removes it again,
+ * leaving the original three boxes.
+ *
+ * #dino-box-container only exists while the Home content is
+ * loaded - about.js/project.js replace #main-content-area's
+ * contents (container included) when About Me/Projects load - so
+ * the container is looked up fresh on every click rather than
+ * cached, and a missing container means "not on the Home page",
+ * which shows the arcade notice popup instead.
+ */
+function initArcadeNav() {
+  var arcadeBtn = document.getElementById("arcade-nav-btn");
+  if (!arcadeBtn) return;
+
+  arcadeBtn.addEventListener("click", function () {
+    var container = document.getElementById("dino-box-container");
+    if (!container) {
+      showArcadeNotice();
+      return;
+    }
+
+    // Already open - just bring it back into view instead of
+    // rebuilding (rebuilding would restart the game).
+    var existing = document.getElementById("dino-game-window");
+    if (existing) {
+      existing.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+
+    container.innerHTML = buildDinoGameWindow();
+    container.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    var closeBtn = document.getElementById("dino-game-close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        container.innerHTML = "";
+      });
+    }
+
+    var iframe = container.querySelector(".dino-game-iframe");
+    if (iframe) {
+      iframe.addEventListener("load", function () {
+        iframe.contentWindow.focus();
+      });
+    }
+  });
+}
+
+/**
+ * Returns the markup for the dynamically-inserted "dino.exe"
+ * window: same content-panel/panel-titlebar chrome as the site's
+ * other windows, but with a green titlebar (.dino-panel-titlebar)
+ * instead of the usual blue, so it reads as visually distinct.
+ *
+ * @returns {string}
+ */
+function buildDinoGameWindow() {
+  return (
+    '<div class="content-panel side-window dino-game-window" id="dino-game-window">' +
+      '<div class="panel-titlebar dino-panel-titlebar">' +
+        '<span class="panel-titlebar-text">dino.exe</span>' +
+        '<span class="panel-titlebar-btns">' +
+          '<span class="tb-btn">-</span><span class="tb-btn">□</span>' +
+          '<button type="button" class="tb-btn-close" id="dino-game-close" aria-label="Close">✕</button>' +
+        "</span>" +
+      "</div>" +
+      '<div class="panel-body dino-game-body">' +
+        '<iframe src="dino-game/index.html" class="dino-game-iframe" ' +
+          'title="Dino game" width="750" height="500" scrolling="no"></iframe>' +
+      "</div>" +
+    "</div>"
+  );
+}
+
+/**
+ * Wires the arcade notice popup's close interactions: the OK
+ * button, the titlebar close button, and a click on its backdrop
+ * all close it. Exposes showArcadeNotice() on window so
+ * initArcadeNav() can open it when Arcade is clicked outside Home.
+ */
+function initArcadeNotice() {
+  var backdrop = document.getElementById("arcade-notice-backdrop");
+  var okBtn = document.getElementById("arcade-notice-ok");
+  var closeBtn = document.getElementById("arcade-notice-close");
+  if (!backdrop || !okBtn || !closeBtn) return;
+
+  okBtn.addEventListener("click", closeArcadeNotice);
+  closeBtn.addEventListener("click", closeArcadeNotice);
+
+  backdrop.addEventListener("click", function (event) {
+    if (event.target === backdrop) closeArcadeNotice();
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && !backdrop.hidden) closeArcadeNotice();
+  });
+}
+
+function showArcadeNotice() {
+  var backdrop = document.getElementById("arcade-notice-backdrop");
+  if (backdrop) backdrop.hidden = false;
+}
+
+function closeArcadeNotice() {
+  var backdrop = document.getElementById("arcade-notice-backdrop");
+  if (backdrop) backdrop.hidden = true;
 }
 
 /**

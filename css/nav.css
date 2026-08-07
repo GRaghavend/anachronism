@@ -1,0 +1,34 @@
+/* ==========================================================
+   NAV BUTTONS
+   Used in: index.html only (the Home/About Me/Projects/arcade
+   row). Not loaded on archives.html - that page has no nav bar.
+   Button look/hover/active states live in base.css (.win-button)
+   since they're shared with buttons elsewhere on the site.
+   ========================================================== */
+
+.nav-table {
+  margin-bottom: 10px;
+}
+
+.nav-cell {
+  width: 25%;
+  text-align: center;
+}
+
+.nav-cell .nav-btn {
+  font-size: 11px;
+  padding: 10px 4px;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 600px) {
+  .nav-table, .nav-table tr, .nav-cell {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-cell {
+    margin-bottom: 6px;
+  }
+}

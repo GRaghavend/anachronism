@@ -1,9 +1,11 @@
 /* ==========================================================
    ABOUT SECTION STYLESHEET
-   Loaded after styles.css. Reuses the site's existing
-   .content-panel / .panel-titlebar / .tb-btn / .win-button
-   classes for the Music window so it matches the rest of the
-   Win98 aesthetic without duplicating that CSS.
+   Used in: index.html only (the About Me content swapped into
+   #main-content-area by js/about.js). Loaded after the css/base.css
+   /window.css set. Reuses the site's existing .content-panel /
+   .panel-titlebar / .tb-btn / .win-button classes for the Music
+   window so it matches the rest of the Win98 aesthetic without
+   duplicating that CSS.
    ========================================================== */
 
 /* ---------- three-column row ---------- */

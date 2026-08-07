@@ -1,0 +1,62 @@
+/* ==========================================================
+   BANNER
+   Used in: index.html (the top hieroglyph banner) AND
+   archives.html (reuses .banner-table/.banner-cell as the
+   structural wrapper around its own .archive-header look, which
+   lives in archives.css).
+   ========================================================== */
+
+.banner-table {
+  margin-bottom: 50px;
+}
+
+.banner-cell {
+  padding: 0;
+}
+
+.banner {
+  background-color: #b0b0b0;
+  background-image: linear-gradient(180deg, #e8e8e8 0%, #b8b8b8 50%, #909090 100%);
+  border-top: 3px solid #ffffff;
+  border-left: 3px solid #ffffff;
+  border-right: 3px solid #404040;
+  border-bottom: 3px solid #404040;
+  padding: 14px 10px;
+  text-align: center;
+  position: relative;
+}
+
+.banner-title {
+  margin: 4px 0 2px 0;
+  font-family: Arial, Verdana, sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #202020;
+  text-shadow:
+    2px 2px 0px #ffffff,
+    3px 3px 0px #6f6f6f;
+  text-transform: uppercase;
+}
+
+.banner-sub {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  font-style: italic;
+  color: #303030;
+}
+
+.banner-marquee {
+  font-size: 14px;
+  color: #303030;
+  letter-spacing: 6px;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 600px) {
+  .banner-title {
+    font-size: 26px;
+    letter-spacing: 2px;
+  }
+}

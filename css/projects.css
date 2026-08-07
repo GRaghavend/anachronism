@@ -1,6 +1,8 @@
 /* ==========================================================
    PROJECTS SECTION STYLESHEET
-   Loaded after styles.css / about.css. Reuses the site's
+   Used in: index.html only (the Projects content swapped into
+   #main-content-area by js/projects.js). Loaded after the
+   css/base.css/window.css set and about.css. Reuses the site's
    existing .content-panel / .panel-titlebar / .tb-btn /
    .win-button classes for the main application window, so it
    matches the rest of the Win98 aesthetic without duplicating

@@ -1,0 +1,105 @@
+/* ==========================================================
+   WINDOW CHROME (styled like an old Win98 app window)
+   Used in: index.html only. This is the generic "app window"
+   component reused by every panel on the page - the Notepad box,
+   current_project.exe, discoveries.log, the About page's
+   music.exe box, the Projects window, the dino.exe arcade box,
+   and the arcade notice dialog. Panel-specific content (what
+   goes inside .panel-body for a given window) lives in that
+   panel's own file, e.g. home.css for the Notepad's video/text
+   content.
+   ========================================================== */
+
+.content-panel {
+  background-color: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+}
+
+.panel-titlebar {
+  background-image: linear-gradient(90deg, #000080 0%, #1084d0 100%);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 4px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Tahoma, Verdana, sans-serif;
+}
+
+.panel-titlebar-btns {
+  display: flex;
+  gap: 3px;
+}
+
+.tb-btn-close {
+  background-color: #cc1212;
+  color: #000000;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+  font-size: 10px;
+  line-height: 12px;
+  width: 16px;
+  height: 14px;
+  text-align: center;
+  font-weight: bold;
+  /* some tb-btn-close elements are real <button>s (the ones that
+     actually close something, for keyboard/screen-reader access) -
+     reset the UA button defaults so they render identically to the
+     decorative <span> ones */
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.tb-btn {
+  background-color: #c0c0c0;
+  color: #000000;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+  font-size: 10px;
+  line-height: 12px;
+  width: 16px;
+  height: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.panel-body {
+  padding: 14px;
+  background-color: #d4d4d4;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,0.015) 0px,
+      rgba(0,0,0,0.015) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  min-height: 260px;
+}
+
+/* ---------- small generic helpers, usable inside any panel-body ---------- */
+
+.divider {
+  border: none;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+  margin: 14px 0;
+}
+
+.placeholder-text {
+  font-style: italic;
+  color: #505050;
+  font-size: 12px;
+}

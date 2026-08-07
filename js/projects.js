@@ -1,5 +1,6 @@
 // ==========================================================
-// project.js
+// projects.js
+// Used in: index.html only.
 // Wires up the "Projects" nav button to swap the SPA content
 // area (see #main-content-area in index.html) with the
 // Projects layout, without a page reload. Follows the same

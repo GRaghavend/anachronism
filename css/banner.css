@@ -37,6 +37,39 @@
     2px 2px 0px #ffffff,
     3px 3px 0px #6f6f6f;
   text-transform: uppercase;
+  position: relative;
+  cursor: help;
+}
+
+/* ---------- hieroglyph tooltip ---------- */
+
+.banner-title-tooltip {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  min-width: 220px;
+  max-width: 90vw;
+  padding: 10px 12px;
+  background-color: #ffffe1;
+  border: 1px solid #404040;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  text-shadow: none;
+  color: #202020;
+  text-align: left;
+  white-space: normal;
+  z-index: 10;
+}
+
+.banner-title:hover .banner-title-tooltip,
+.banner-title:focus-within .banner-title-tooltip {
+  display: block;
 }
 
 .banner-sub {
